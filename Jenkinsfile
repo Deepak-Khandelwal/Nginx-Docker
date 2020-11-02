@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'kube_node' }
+    agent any
     stages {
         stage("Checkout code") {
             steps {
@@ -17,11 +17,10 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                            myapp.push("latest")
-                            myapp.push("${env.BUILD_ID}")
+                            myapp.push()
                     }
                 }
             }
         }        
-                        
+    }                   
 }

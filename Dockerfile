@@ -17,4 +17,4 @@ WORKDIR /etc/nginx
 
 CMD service nginx start
 
-EXPOSE 8081
+EXPOSE 8080
